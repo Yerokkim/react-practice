@@ -23,8 +23,6 @@ import React, { useState } from "react";
 import useInput from "./exxxfile";
 
 const CustomeHooks = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [firstName, bindFirstName, restFirstName] = useInput("");
   const [lastName, bindLastName, resetLastName] = useInput("");
   const submitHandler = (e) => {

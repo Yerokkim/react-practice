@@ -5,6 +5,7 @@ import {
   GET_ALL_USER,
   SET_ISAUTH,
 } from "../actions/types";
+import { act } from "react-dom/test-utils";
 
 const initalState = {
   isAuth: false,
@@ -31,7 +32,7 @@ export default function (state = initalState, action) {
     case SET_ISAUTH: {
       return {
         ...state,
-        isAuth: true,
+        isAuth: action.payload,
       };
     }
     case SET_ERROR: {

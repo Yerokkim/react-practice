@@ -21,10 +21,14 @@ export const getUser = (user) => (dispatch) => {
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      dispatch({ type: SET_ISAUTH });
+      dispatch({ type: SET_ISAUTH, payload: true });
       dispatch({ type: SET_LOADING, payload: false });
     })
-    .catch((e) => dispatch({ type: SET_ERROR, payload: true }));
+    .catch((e) => {
+      dispatch({ type: SET_ISAUTH, payload: false });
+      dispatch({ type: SET_ERROR, payload: true });
+    });
+
   return {
     type: "GET_USER",
     payload: user,
